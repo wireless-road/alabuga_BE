@@ -1,0 +1,108 @@
+include:
+  - template: Security/Secret-Detection.gitlab-ci.yml
+
+stages:
+  - test
+  - analyze
+  - deploy
+
+secret_detection:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE=="merge_request_event" || $CI_COMMIT_BRANCH=="master"'
+
+RunTests:
+  stage: test
+  image: "snapbooksas/python"
+  variables:
+    PUSHER_APP_ID: $PUSHER_APP_ID
+    PUSHER_CLUSTER: $PUSHER_CLUSTER
+    PUSHER_KEY: $PUSHER_KEY
+    PUSHER_SECRET: $PUSHER_SECRET
+    DB_HOST: $DB_HOST
+    DB_NAME: $DB_NAME
+    DB_PASSWORD: $DB_PASSWORD
+    DB_USER: $DB_USER
+    DB_HOST_INTEGRATION_TEST: $DB_HOST_INTEGRATION_TEST
+    SECRET_DETECTION_HISTORIC_SCAN: "true"
+  script:
+    - pwd
+    - ls
+    - cat /etc/hosts
+    - echo "$TEST_SFTP_HOST"
+    - mkdir -pm 0700 ~/.ssh
+    - ssh-keyscan -H "$TEST_SFTP_HOST" >> ~/.ssh/known_hosts
+    - apt-get update -qq -y && apt-get install -qq -y xmlsec1
+    - pipenv install --system --dev
+    - flake8
+    - mypy snapbooks --ignore-missing-imports
+    - pytest --cov=. --cov-report=xml --junitxml=xunit-results.xml
+  artifacts:
+    paths:
+      - coverage.xml
+      - xunit-results.xml
+    expire_in: 1 week
+  rules:
+    - if: '$CI_PIPELINE_SOURCE=="merge_request_event" || $CI_COMMIT_BRANCH=="master"'
+
+
+sonarcloud-check:
+  stage: analyze
+  image:
+    name: sonarsource/sonar-scanner-cli:latest
+    entrypoint: [""]
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar" # Defines the location of the analysis task cache
+    GIT_DEPTH: "0" # Tells git to fetch all the branches of the project, required by the analysis task
+  script:
+    - sonar-scanner
+  rules:
+    - if: '$CI_PIPELINE_SOURCE=="merge_request_event" || $CI_COMMIT_BRANCH=="master"'
+
+
+.deployment_template: &deployment_configuration
+  image: docker:stable
+  services:
+    - docker:stable-dind  
+  script:
+    # Setup of SSH key and known hosts
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client git -y )'
+    - eval $(ssh-agent -s)
+    - echo "$AWS_SERVER_SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan ${AWS_SERVER_ADDRESS} >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+
+    # Bulding docker image and saving to file
+    - docker build -t snapbooks .  
+    - docker save snapbooks -o snapbooks.tar
+    - gzip snapbooks.tar -1
+
+    # Transfer docker image and deploy script to remote server and connect to it
+    - scp snapbooks.tar.gz ubuntu@${AWS_SERVER_ADDRESS}:snapbooks.tar.gz
+    - scp deploy.sh ubuntu@${AWS_SERVER_ADDRESS}:deploy.sh
+    - ssh ubuntu@${AWS_SERVER_ADDRESS} "export DEPLOYMENT_ENVIRONMENT=${CI_ENVIRONMENT_SLUG} && chmod +x deploy.sh && ./deploy.sh && rm deploy.sh"
+
+
+deployStaging:
+  stage: deploy
+  environment: 
+    name: staging
+    url: https://api.staging.snapbooks.com/
+  <<: *deployment_configuration
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+deployProduction:
+  stage: deploy
+  when: manual
+  environment: 
+    name: production
+    url: https://api.snapbooks.com/
+  <<: *deployment_configuration
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SendResponse xmlns="urn:com:tickstar:peppol:ws:envelope">
+    <Status>
+        <Code>200</Code>
+        <MessageIdentifier>9aede3f0-b845-40bc-b5d8-66673a7fcc1d</MessageIdentifier>
+        <RelayOperatorIdentifier>1364</RelayOperatorIdentifier>
+        <Description>Message successfully delivered with AS4.</Description>
+        <ProofOfDelivery>
+            <Received>2020-03-17T08:45:43Z</Received>
+            <ReceiverAddress>https://api.basware.com/peppol/as4</ReceiverAddress>
+            <Certificate>-----BEGIN CERTIFICATE-----
+MIIFqDCCA5CgAwIBAgIQHp/fRC3OtgaKoaR1W8qZzzANBgkqhkiG9w0BAQsFADBO
+MQswCQYDVQQGEwJCRTEZMBcGA1UEChMQT3BlblBFUFBPTCBBSVNCTDEkMCIGA1UE
+AxMbUEVQUE9MIEFDQ0VTUyBQT0lOVCBDQSAtIEcyMB4XDTE4MTEyNjAwMDAwMFoX
+DTIwMTExNTIzNTk1OVowUjESMBAGA1UEAwwJUE9QMDAwMDEwMR0wGwYDVQQLDBRQ
+RVBQT0wgUFJPRFVDVElPTiBBUDEQMA4GA1UECgwHQmFzd2FyZTELMAkGA1UEBhMC
+RkkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDAwwkCdW1HKygIwXrQ
+a2kGSDWm/RceXBqjBtDNYyoL8lGcNnZlVn3frHMqQbPYr8OcegOxo/5iWc38aZfi
+bEVjY6bhCq/+UyT6+FEvxIL70ttg1MuC6dB1cU9CwYMCo++rxIcTvie3ZdxMyYfD
+LN7/9BZiUGW60lGWaGlve5Cdoov80WAEb/OqOygiPgqT7jQN33CH5KxVz8jQYxvU
+XZA951lmq1r2GCPSakoglrceWChkmwUIS5pTpvPbWldcbMtOeYBRVdfo+EcxUfeA
+KLnazK7Z8ybt5ROyba+Zd5zkLKtQwZCYLtEIGt6WfmdRNra3rpvvYYC4J+lTGWyX
+UPkJAgMBAAGjggF8MIIBeDAMBgNVHRMBAf8EAjAAMA4GA1UdDwEB/wQEAwIDqDAW
+BgNVHSUBAf8EDDAKBggrBgEFBQcDAjAdBgNVHQ4EFgQUCPwDgb0JlqoqmpUbG7r7
+T12xMoYwXQYDVR0fBFYwVDBSoFCgToZMaHR0cDovL3BraS1jcmwuc3ltYXV0aC5j
+b20vY2FfN2JlZGNiY2M0ZjcyNGVmZTMwZDUwMDZkZGE2ODFiYTAvTGF0ZXN0Q1JM
+LmNybDA3BggrBgEFBQcBAQQrMCkwJwYIKwYBBQUHMAGGG2h0dHA6Ly9wa2ktb2Nz
+cC5zeW1hdXRoLmNvbTAfBgNVHSMEGDAWgBSHJd9bI6bEO/mf3xulIJHd5PQ8gTAt
+BgpghkgBhvhFARADBB8wHQYTYIZIAYb4RQEQAQIDAQGBstf0NhYGOTU3NjA4MDkG
+CmCGSAGG+EUBEAUEKzApAgEAFiRhSFIwY0hNNkx5OXdhMmt0Y21FdWMzbHRZWFYw
+YUM1amIyMD0wDQYJKoZIhvcNAQELBQADggIBAGkn2YC81Qo/1VvWHJc83ZBseUVK
+Q/qzIaqpvcJYNdTSsV9BDUmIoolwJ85wpIJyoCprjF/yJ6cKKPFTcWlM3OvQn6g2
+C67kZRSIy9XVuUhO8vR7kmRBh8FC04jqbRglMkLeiSUh/Pz2RqpxyAxz1QhilJcE
+d3kyv5pNS6t+S32hqMzu5NeetbBKPP+c79HNV/G/qoR7EPb9d+YpL4g0Qe2kN+eL
+JG7jjHuPTUNGmA4tGiqaMOJZfc3unT+mCtg6NSKhzZRsdUjEGutlvlwKlqXo+no6
+9z8ZAo9JUCfDuYcl+NCguIT6QEWWpwsmrr3j/0WBwcQsOOtzeMwOLZ7VEmr+wFwl
+tlMm3Bx/fm9yDqZKlbwf6Fq8aYt2F0ksyQDJXmreaXHiO6f/8qgip+H7D72o/IQy
+JBx1xMEy+QneRlzOgf1ZxH68coqBKgjxGyHFkzxny62/bcM13dt8INgnJLpjG1Dp
+KuLE1VQJ9jA2NO2RBf5dNeXYdYgsPBb20wcjUnrSKHi3dtdFuDONpNbYGybS+utv
+OL8AVK//N91r+P13a28jxKerJaRKQQUNSbHlBbKzuLvi/tvEBXfiIK5mL2jV/j7t
+ZyGe2B7E94lbah2HOygW9d3NyfnNoSCh3sDb6mqJDVPCZDODprcRapNjiAouiygp
+y341V9P1rLe7bbO0
+-----END CERTIFICATE-----
+</Certificate>
+            <Content>{"eb:Receipt": {
+  "xmlns:eb": "http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/",
+  "ns7:NonRepudiationInformation": {
+    "ns7:MessagePartNRInformation": [
+      {"ns6:Reference": {
+        "ns6:Transforms": {"ns6:Transform": {
+          "ec:InclusiveNamespaces": {
+            "xmlns:soapenv": "http://www.w3.org/2003/05/soap-envelope",
+            "PrefixList": "#default",
+            "xmlns:ec": "http://www.w3.org/2001/10/xml-exc-c14n#",
+            "xmlns:ds": "http://www.w3.org/2000/09/xmldsig#",
+            "xmlns:wsse": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+          },
+          "Algorithm": "http://www.w3.org/2001/10/xml-exc-c14n#"
+         }} ,
+        "ns6:DigestValue": "5cjgJFJ//Ed3bWH6Z0KeHzccYUqCLq42+0l4tV+BTac=",
+        "xmlns:ns6": "http://www.w3.org/2000/09/xmldsig#",
+        "ns6:DigestMethod": {"Algorithm": "http://www.w3.org/2001/04/xmlenc#sha256"},
+        "URI": "#mid:a9444156-3f98-4f9a-835a-4ddaf7234e92"
+       }} ,
+      {"ns6:Reference": {
+        "ns6:Transforms": {"ns6:Transform": {"Algorithm": "http://www.w3.org/2001/10/xml-exc-c14n#" }} ,
+        "ns6:DigestValue": "Eel1vNmWJvBv28SZ1mrsFO/IUFGK18ZJM02h02z2E/M=",
+        "xmlns:ns6": "http://www.w3.org/2000/09/xmldsig#",
+        "ns6:DigestMethod": {"Algorithm": "http://www.w3.org/2001/04/xmlenc#sha256"},
+        "URI": "#id-40e73ff2-4a09-4152-9675-6c9720b56c89"
+       }} ,
+      {"ns6:Reference": {
+        "ns6:Transforms": {"ns6:Transform": {"Algorithm": "http://docs.oasis-open.org/wss/oasis-wss-SwAProfile-1.1#Attachment-Content-Signature-Transform" }} ,
+        "ns6:DigestValue": "WqNjO2GG0GIpWqMEtgMTtUEcZfnzC0fiYeGulEU4zY8=",
+        "xmlns:ns6": "http://www.w3.org/2000/09/xmldsig#",
+        "ns6:DigestMethod": {"Algorithm": "http://www.w3.org/2001/04/xmlenc#sha256"},
+        "URI": "cid:2b38990f-ba28-44e6-8abd-7f75e74f366b@ggw.pid"
+       }} 
+    ],
+    "xmlns:ns7": "http://docs.oasis-open.org/ebxml-bp/ebbp-signals-2.0"
+  }
+ }} </Content>
+        </ProofOfDelivery>
+    </Status>
+    <OriginalHeader>
+        <MessageIdentifier>9aede3f0-b845-40bc-b5d8-66673a7fcc1d</MessageIdentifier>
+        <RelayOperatorIdentifier>1364</RelayOperatorIdentifier>
+        <SenderIdentifier>
+            <Scheme>iso6523-actorid-upis</Scheme>
+            <Value>0192:993606650</Value>
+        </SenderIdentifier>
+        <RecipientIdentifier>
+            <Scheme>iso6523-actorid-upis</Scheme>
+            <Value>0192:918645810</Value>
+        </RecipientIdentifier>
+        <DocumentIdentifier>
+            <Scheme>busdox-docid-qns</Scheme>
+            <Value>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</Value>
+        </DocumentIdentifier>
+        <ProcessIdentifier>
+            <Scheme>cenbii-procid-ubl</Scheme>
+            <Value>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</Value>
+        </ProcessIdentifier>
+    </OriginalHeader>
+</SendResponse>

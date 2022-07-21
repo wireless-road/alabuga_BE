@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+            const result = '{{ result }}'
+            const documents = JSON.stringify({{ documents }})
+
+            if ('{{ app }}' !== 'mobile') {
+                const text = window.parent.document.querySelector('.sign_in_criipto-title')
+                text.innerHTML = result
+
+                if (result === 'You can close the window') {
+                    const button = window.parent.document.querySelector('.sign_in_criipto-button')
+                    button.innerHTML = 'Fortsett';
+                    button.style.background = '#fcda67';
+                }
+
+                window.top.localStorage.setItem('documents', documents);
+
+
+                const el = window.parent.document.getElementsByTagName('iframe')[0];
+                el.parentNode.removeChild(el);
+            } else {
+                window.localStorage.setItem('documents', documents);
+            }
+        </script>
+    </body>
+</html>

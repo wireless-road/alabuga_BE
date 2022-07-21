@@ -1,0 +1,96 @@
+version: "2.4"
+
+services:
+  alabuga_redis:
+    image: redis:6.0.8-alpine
+    ports:
+      - "6380:6379"
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli", "ping"]
+      interval: 6s
+      timeout: 3s
+      retries: 10
+
+
+  alabuga_postgres:
+    image: postgres:11.9
+    environment:
+      POSTGRES_DB: test
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+    restart: always
+    ports:
+      - "5433:5432"
+    command: ["postgres", "-c", "log_statement=all"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U test"]
+      interval: 6s
+      timeout: 3s
+      retries: 10
+#    volumes:
+#      - ./volume:/app/volume
+
+
+  alabuga_backend:
+    build: .
+    image: &img alabuga_backend
+    environment:
+      - ROLE=backend
+      - PIPENV_VENV_IN_PROJECT=1
+      - FLASK_ENV=development
+      - FLASK_APP=run_celery.py
+      - FLASK_RUN_HOST=0.0.0.0
+      - FLASK_RUN_PORT=5000
+      - DB_HOST=alabuga_postgres
+      - DB_PORT=5432
+      - CELERY_RESULT_BACKEND=redis://alabuga_redis:6379
+      - CELERY_BROKER_URL=redis://alabuga_redis:6379
+      - REDIS_URI=redis://alabuga_redis:6379/0?socket_connect_timeout=5&socket_timeout=5
+    tty: true
+    stdin_open: true
+    ports:
+      - "5000:5000"
+    links:
+      - alabuga_postgres
+      - alabuga_redis
+
+  alabuga_beat:
+    build: .
+    image: *img
+#    command: [celery, --app=app.celery, beat, --loglevel=DEBUG]
+    environment:
+      - ROLE=worker
+      - PIPENV_VENV_IN_PROJECT=1
+      - FLASK_ENV=development
+      - FLASK_APP=run_celery.py
+      - FLASK_RUN_HOST=0.0.0.0
+      - FLASK_RUN_PORT=5000
+      - DB_HOST=alabuga_postgres
+      - DB_PORT=5432
+      - CELERY_RESULT_BACKEND=redis://alabuga_redis:6379
+      - CELERY_BROKER_URL=redis://alabuga_redis:6379
+      - REDIS_URI=redis://alabuga_redis:6379/0?socket_connect_timeout=5&socket_timeout=5
+    depends_on:
+      - alabuga_redis
+
+  alabuga_worker:
+    build: .
+    image: *img
+#    command: [celery, --app=app.celery, worker, -E]
+    environment:
+      - ROLE=beat
+      - PIPENV_VENV_IN_PROJECT=1
+      - FLASK_ENV=development
+      - FLASK_APP=run_celery.py
+      - FLASK_RUN_HOST=0.0.0.0
+      - FLASK_RUN_PORT=5000
+      - DB_HOST=alabuga_postgres
+      - DB_PORT=5432
+      - CELERY_RESULT_BACKEND=redis://alabuga_redis:6379
+      - CELERY_BROKER_URL=redis://alabuga_redis:6379
+      - REDIS_URI=redis://alabuga_redis:6379/0?socket_connect_timeout=5&socket_timeout=5
+    depends_on:
+      - alabuga_redis
+      - alabuga_beat
+#    volumes:
+#      - ./volume:/app/volume

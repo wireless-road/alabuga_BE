@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SendResponse xmlns="urn:com:tickstar:peppol:ws:envelope">
+    <Status>
+        <Code>500</Code>
+        <MessageIdentifier>9aede3f0-b845-40bc-b5d8-66673a7fcc1d</MessageIdentifier>
+        <RelayOperatorIdentifier>1039</RelayOperatorIdentifier>
+        <Description>Something went wrong. Please refer to specific error elements below.</Description>
+    </Status>
+    <Error>
+        <Code>-1360</Code>
+        <Description>The participant iso6523-actorid-upis::9945:PL9231548435 cannot be resolved in the SML [2020-11-05T09:10:14.726Z]</Description>
+        <InModule>9</InModule>
+    </Error>
+    <Error>
+        <Code>-1360</Code>
+        <Description>The participant iso6523-actorid-upis::9945:PL9231548435 cannot be resolved in the SML [2020-11-05T09:15:14.728Z]</Description>
+        <InModule>9</InModule>
+    </Error>
+    <Error>
+        <Code>-1360</Code>
+        <Description>The participant iso6523-actorid-upis::9945:PL9231548435 cannot be resolved in the SML [2020-11-05T09:20:14.729Z]</Description>
+        <InModule>9</InModule>
+    </Error>
+    <Error>
+        <Code>-1360</Code>
+        <Description>The participant iso6523-actorid-upis::9945:PL9231548435 cannot be resolved in the SML [2020-11-05T09:25:14.731Z]</Description>
+        <InModule>9</InModule>
+    </Error>
+    <Error>
+        <Code>-1360</Code>
+        <Description>The participant iso6523-actorid-upis::9945:PL9231548435 cannot be resolved in the SML [2020-11-05T09:35:14.733Z]</Description>
+        <InModule>9</InModule>
+    </Error>
+    <Error>
+        <Code>-1360</Code>
+        <Description>The participant iso6523-actorid-upis::9945:PL9231548435 cannot be resolved in the SML [2020-11-05T09:40:14.735Z]</Description>
+        <InModule>9</InModule>
+    </Error>
+    <OriginalHeader>
+        <MessageIdentifier>9aede3f0-b845-40bc-b5d8-66673a7fcc1d</MessageIdentifier>
+        <RelayOperatorIdentifier>1039</RelayOperatorIdentifier>
+        <SenderIdentifier>
+            <Scheme>iso6523-actorid-upis</Scheme>
+            <Value>0007:5562944512</Value>
+        </SenderIdentifier>
+        <RecipientIdentifier>
+            <Scheme>iso6523-actorid-upis</Scheme>
+            <Value>9945:PL9231548123</Value>
+        </RecipientIdentifier>
+        <DocumentIdentifier>
+            <Scheme>busdox-docid-qns</Scheme>
+            <Value>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</Value>
+        </DocumentIdentifier>
+        <ProcessIdentifier>
+            <Scheme>cenbii-procid-ubl</Scheme>
+            <Value>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</Value>
+        </ProcessIdentifier>
+    </OriginalHeader>
+</SendResponse>

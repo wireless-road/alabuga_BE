@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SendResponse xmlns="urn:com:tickstar:peppol:ws:envelope">
+    <Status>
+        <Code>500</Code>
+        <MessageIdentifier>0190-B356DA422072E05400144FF856EE</MessageIdentifier>
+        <RelayOperatorIdentifier>1115</RelayOperatorIdentifier>
+        <Description>Something went wrong. Please refer to specific error elements below.</Description>
+    </Status>
+    <Error>
+        <Code>-4100</Code>
+        <Description>Document validation was completed with reported errors. ValidatorResult=[
+{"validationResult": [
+      {
+         "key": "validationSourceReference",
+         "value": "cenbii-t14-05-1.0"
+      },
+      {
+         "key": "documentName",
+         "value": "CEN BII Creditnote 1.0 (Profile 05)"
+      },
+      {
+         "key": "profileId",
+         "value": "urn:www.cenbii.eu:profile:bii05:ver1.0"
+      },
+      {
+         "key": "customizationId",
+         "value": "urn:www.cenbii.eu:transaction:biicoretrdm014:ver1.0"
+      },
+      {
+         "key": "success",
+         "value": "false"
+      },
+      {
+         "key": "warning",
+         "value": "false"
+      },
+      {
+         "key": "severity[0]",
+         "value": "INFO"
+      },
+      {
+         "key": "rulesetDescription[0]",
+         "value": "XSD validation"
+      },
+      {
+         "key": "rulsetSourceReference[0]",
+         "value": "ehf-schemas"
+      },
+      {
+         "key": "ruleIdentifier[0]",
+         "value": "null"
+      },
+      {
+         "key": "description[0]",
+         "value": "null"
+      },
+      {
+         "key": "xpath[0]",
+         "value": "null"
+      },
+      {
+         "key": "test[0]",
+         "value": "null"
+      },
+      {
+         "key": "severity[1]",
+         "value": "CRITICAL"
+      },
+      {
+         "key": "rulesetDescription[1]",
+         "value": "BIIRULES  T14 bound to UBL"
+      },
+      {
+         "key": "rulsetSourceReference[1]",
+         "value": "cenbii-t14-base-1.0"
+      },
+      {
+         "key": "ruleIdentifier[1]",
+         "value": "BII2-T14-R053"
+      },
+      {
+         "key": "description[1]",
+         "value": "A credit note total with VAT MUST equal the credit note total without VAT plus the VAT total amount and the rounding of credit note total"
+      },
+      {
+         "key": "xpath[1]",
+         "value": "/*:CreditNote[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2'][1]/*:LegalMonetaryTotal[namespace-uri()='urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2'][1]"
+      },
+      {
+         "key": "test[1]",
+         "value": "((cbc:PayableRoundingAmount) and ((xs:decimal(cbc:TaxInclusiveAmount)) = (round((xs:decimal(cbc:TaxExclusiveAmount) + (xs:decimal(sum(/ubl:CreditNote/cac:TaxTotal/cbc:TaxAmount))) + xs:decimal(cbc:PayableRoundingAmount)) *10 * 10) div 100))) or (not(cbc:PayableRoundingAmount) and ((xs:decimal(cbc:TaxInclusiveAmount)) = round((xs:decimal(cbc:TaxExclusiveAmount) + (xs:decimal(sum(/ubl:CreditNote/cac:TaxTotal/cbc:TaxAmount)))) * 10 * 10) div 100))"
+      }
+   ],
+   "success": false,
+   "warnings": false
+}] [2020-11-01T07:46:57.383Z]</Description>
+        <InModule>8</InModule>
+    </Error>
+    <OriginalHeader>
+        <MessageIdentifier>0190-B356DA422072E05400144FF856EE</MessageIdentifier>
+        <RelayOperatorIdentifier>1115</RelayOperatorIdentifier>
+        <SenderIdentifier>
+            <Scheme>iso6523-actorid-upis</Scheme>
+            <Value>0196:6006670123</Value>
+        </SenderIdentifier>
+        <RecipientIdentifier>
+            <Scheme>iso6523-actorid-upis</Scheme>
+            <Value>0196:5210100113</Value>
+        </RecipientIdentifier>
+        <DocumentIdentifier>
+            <Scheme>busdox-docid-qns</Scheme>
+            <Value>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:www.cenbii.eu:transaction:biicoretrdm014:ver1.0::2.0</Value>
+        </DocumentIdentifier>
+        <ProcessIdentifier>
+            <Scheme>cenbii-procid-ubl</Scheme>
+            <Value>urn:www.cenbii.eu:profile:bii05:ver1.0</Value>
+        </ProcessIdentifier>
+    </OriginalHeader>
+</SendResponse>

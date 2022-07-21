@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<title>Invoice #{{invoiceData.invoiceNumber}}</title>
+
+		<!-- Favicon -->
+		<link rel="icon" href="./images/favicon.png" type="image/x-icon" />
+
+		<!-- Invoice styling -->
+		<style>
+            @page {
+                size: A4;
+                margin: 0mm;
+            }
+			body {
+				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+				text-align: center;
+				color: #777;
+				margin: 0;
+			}
+
+			.invoice-box {
+				margin: 0px;
+				padding: 0px 50px;
+				font-size: 16px;
+				line-height: 24px;
+				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+				color: #555;
+				min-height: 100vh;
+				padding-bottom: 100px;
+				position: relative;
+			}
+
+			.invoice-box table {
+				width: 100%;
+				line-height: inherit;
+				text-align: left;
+				border-collapse: collapse;
+			}
+
+			.invoice-box table .top-left {
+			    background-color: #565F67;
+			    color: white;
+			    padding-left: 10px;
+                padding-right: 10px;
+                width: 180px;
+                /*position: absolute;*/
+                /*left: 7.66%;*/
+                /*right: 67.74%;*/
+                /*top: -1.2%;*/
+                /*bottom: 67.27%;*/
+			}
+			.invoice-box table .top-left .title {
+			    font-size: 30px;
+			    padding-bottom: 40px;
+			}
+            .invoice-box table .top-right {
+			    width: 350px;
+			    padding-top: 70px;
+			}
+			.invoice-box table .top-right .title {
+			    width: 135px;
+                padding-right: 20px;
+                text-align: right;
+                vertical-align: top;
+                color: #41485A;
+			}
+			.invoice-box table .top-left .name {
+			    color: #bbbfc2;
+			}
+			.invoice-box table .top-right .name {
+			    color: #8d919c;
+			    text-align: right;
+			    vertical-align: top;
+			    padding-right: 45px;
+                font-family: Mark-Regular;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                /*line-height: 46px;*/
+			}
+			.invoice-box table .top-right .value {
+			    /*color: black;*/
+			    /*line-height: 1.7;*/
+			    /*vertical-align: top;*/
+                color: #1D1D27;
+                font-family: Mark-Regular;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                /*line-height: 46px;*/
+			}
+
+			.invoice-box .invoice-data .heading td {
+			    padding-top: 10px;
+			    padding-bottom: 10px;
+			    background-color: #565F67;
+			    color: white;
+			}
+
+            .invoice-data-row {
+                color: #41485A;
+                font-family: Mark-Regular;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+            }
+            .table-content {
+                background: #F5F6F7;
+                border: 1px solid rgba(213, 218, 223, 0.35);
+                box-sizing: border-box;
+            }
+			.invoice-box .invoice-data .data td {
+			    color: #41485a;
+			    padding-top: 10px;
+			    padding-bottom: 10px;
+            }
+            .invoice-box .invoice-data .data td:first-child {
+			    padding-left: 20px;
+            }
+            .invoice-box .invoice-data {
+			    margin-bottom: 30px;
+            }
+
+            .invoice-box .summary-data .content {
+                width: 300px;
+            }
+            .invoice-box .summary-data .content .name {
+			    color: #8d919c;
+			    text-align: right;
+			    vertical-align: top;
+			    padding-right: 40px;
+			}
+			.invoice-box .summary-data .content .value {
+			    color: black;
+			    line-height: 1.7;
+			    vertical-align: top;
+			}
+            .row {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+                border-spacing: 5px;
+            }
+            .column {
+                display: table-cell;
+            }
+            .alignleft {
+                text-align: left;
+                color: #1D1D27;
+                font-family: Mark-Regular;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+            }
+            .alignright {
+                text-align: right;
+			    color: #8d919c;
+			    text-align: right;
+			    vertical-align: top;
+			    padding-right: 45px;
+                font-family: Mark-Regular;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+            }
+            .sign {
+                font-family: Mark-Pro;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 8px;
+            }
+		</style>
+	</head>
+
+	<body>
+		<div class="invoice-box">
+			<table style="margin-bottom: 50px;">
+				<tr class="top">
+					<td class="top-left">
+						<table>
+							<tr>
+								<td class="title">
+									Invoice
+								</td>
+                            </tr>
+                            <tr>
+								<td>
+									<table>
+                                        <tr>
+                                            <td class="name">Invoice No.</td>
+                                            <td class="value">{{invoiceData.invoiceNumber}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="name">Issued</td>
+                                            <td class="value">{{invoiceData.issueDate}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="name">Due date</td>
+                                            <td class="value">{{invoiceData.dueDate}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+							</tr>
+						</table>
+					</td>
+                    <td style=""></td>
+                    <td class="top-right">
+						<table>
+							<tr style="margin-bottom: 20px;">
+								<td class="name">
+									From
+								</td>
+                                <td class="value">
+                                    {{invoiceData.from.contract}} <br/>
+                                    {{invoiceData.from.address}} <br/>
+                                    {{invoiceData.from.city}} <br/>
+                                    {{invoiceData.from.country}} <br/>
+                                </td>
+                            </tr>
+                            <tr>
+								<td class="name">
+									Invoice for
+								</td>
+                                <td class="value">
+                                    {{invoiceData.for.name}} <br/>
+                                    {{invoiceData.for.address}} <br/>
+                                    {{invoiceData.for.city}} <br/>
+                                    {{invoiceData.for.country}} <br/>
+                                </td>
+                            </tr>
+						</table>
+					</td>
+				</tr>
+            </table>
+
+            <table class="invoice-data">
+                <thead>
+                    <tr class="heading">
+                        <td style="width: 30%; padding-left: 20px;">Item</td>
+                        <td style="width: 18%;">Quantity</td>
+                        <td style="width: 18%;">Price</td>
+                        <td style="width: 17%;">VAT</td>
+                        <td style="width: 17%;">Total</td>
+                    </tr>
+                </thead>
+				<tbody id="lines-body" class="table-content">
+                {% for line in invoiceData.lines %}
+                    <tr class="invoice-data-row">
+                        <td style="padding-left: 1em;">{{line.item}}</td>
+                        <td style="text-align: right;">{{line.quantity}} {{line.unit}}</td>
+                        <td style="text-align: right;">{{line.price}}</td>
+                        <td style="text-align: right;">{{line.vat}}</td>
+                        <td style="text-align: right; padding-right: 1em;">{{line.total}}</td>
+                    </tr>
+                    {% if line.description %}
+                    <tr>
+                        <td colspan="5" class="invoice-data-row" style="padding-left: 2em; font-size: 10px;">{{line.description}}</td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+			</table>
+
+            <table class="summary-data">
+                <tr>
+                    <td></td>
+                    <td class="content">
+                        <table>
+                            <tr>
+                                <td class="name">
+                                    Subtotal
+                                </td>
+                                <td class="value">
+                                    {{invoiceData.summary.subtotal}}
+                                </td>
+                            </tr>
+                            {% for key in invoiceData.vat.keys() %}
+                                {% if key != "subtotal" and key != "amount_due" %}
+                                <tr>
+                                    <td class="name">
+                                        VAT ({{key}}%)
+                                    </td>
+                                    <td class="value">
+                                        {{invoiceData.vat[key]}}
+                                    </td>
+                                </tr>
+                                {% endif %}
+                            {% endfor %}
+                            <tr>
+                                <td class="name">
+                                    Amount due
+                                </td>
+                                <td class="value">
+                                    {{invoiceData.summary.amount_due}}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+		</div>
+        <div style="border-bottom: 1px solid black; position: absolute; bottom: 11.55%; width: 100%; left: 0;">
+        </div>
+        <div style="position: absolute; bottom: 1.55%; right: 75%;">
+            <div class="sign">Sent from Snapbooks</div>
+        </div>
+        <div style="position: absolute; bottom: 1.55%; right: 1%; width: 400px;">
+            <div class="row">
+                <div class="column alignright">Company information</div>
+                <div class="column alignleft"> </div>
+            </div>
+            <div class="row">
+                <div class="column alignright">Foretaksregisteret: </div>
+                <div class="column alignleft">{{invoiceData.from.organization_number}}MVA</div>
+            </div>
+            <div class="row">
+                <div class="column alignright">Bank account: </div>
+                <div class="column alignleft">{{invoiceData.bankAccount}}</div>
+            </div>
+        </div>
+	</body>
+</html>

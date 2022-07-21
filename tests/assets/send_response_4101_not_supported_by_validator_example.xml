@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SendResponse xmlns="urn:com:tickstar:peppol:ws:envelope">
+    <Status>
+        <Code>200</Code>
+        <MessageIdentifier>1221_20201105_1541008</MessageIdentifier>
+        <RelayOperatorIdentifier>1140</RelayOperatorIdentifier>
+        <Description>Message successfully delivered with AS4.</Description>
+        <ProofOfDelivery>
+            <Received>2020-11-05T07:46:47Z</Received>
+            <ReceiverAddress>https://ehf.jcloud.no/as4</ReceiverAddress>
+            <Certificate>-----BEGIN CERTIFICATE-----
+MIIFszCCA5ugAwIBAgIQFPc1pew/2EYW1LT7isx95zANBgkqhkiG9w0BAQsFADBO
+MQswCQYDVQQGEwJCRTEZMBcGA1UEChMQT3BlblBFUFBPTCBBSVNCTDEkMCIGA1UE
+AxMbUEVQUE9MIEFDQ0VTUyBQT0lOVCBDQSAtIEcyMB4XDTIwMDgxOTAwMDAwMFoX
+DTIyMDgwOTIzNTk1OVowXTESMBAGA1UEAwwJUE5PMDAwMDk2MR0wGwYDVQQLDBRQ
+RVBQT0wgUFJPRFVDVElPTiBBUDEbMBkGA1UECgwSTmV0Q2xpZW50IFNlcnZpY2Vz
+MQswCQYDVQQGEwJOTzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALTL
+U6IJe0o9DLuxLsSkmI7D3qKxCVnwRs17Yg/g+LHzFIjLCXluOtqLpXQSuQplHkyU
+oSv8ZERaK1zRQf45GOGiw5YWeLmg5HuPGdxSjh/d231Re8WR22hmYs+WNQ3X515N
+FV+FRfVD+m1f8fBssPKN2ZMixvUQwPRXLdj4TWa4LKKFA9ArwZaAcHHzZPWV2cH6
+NiSHHD7HcoZ5oLP9ehV6V08A72kGO0QGI5dUVYBpFZiqnIOCCozv9eySuW4x2xnu
+HXcOQ2vVJXQf/EOeyKEO29t9VKYGFZ8fo8pFaDgxDe+ZaEUVEdiItCu0AE5YM/yc
+LtYjAPruLawl1ZGgFvUCAwEAAaOCAXwwggF4MAwGA1UdEwEB/wQCMAAwDgYDVR0P
+AQH/BAQDAgOoMBYGA1UdJQEB/wQMMAoGCCsGAQUFBwMCMB0GA1UdDgQWBBTshJpV
+naYnp6QnErLZ1slnDbca5DBdBgNVHR8EVjBUMFKgUKBOhkxodHRwOi8vcGtpLWNy
+bC5zeW1hdXRoLmNvbS9jYV83YmVkY2JjYzRmNzI0ZWZlMzBkNTAwNmRkYTY4MWJh
+MC9MYXRlc3RDUkwuY3JsMDcGCCsGAQUFBwEBBCswKTAnBggrBgEFBQcwAYYbaHR0
+cDovL3BraS1vY3NwLnN5bWF1dGguY29tMB8GA1UdIwQYMBaAFIcl31sjpsQ7+Z/f
+G6Ugkd3k9DyBMC0GCmCGSAGG+EUBEAMEHzAdBhNghkgBhvhFARABAgMBAYGy1/Q2
+FgY5NTc2MDgwOQYKYIZIAYb4RQEQBQQrMCkCAQAWJGFIUjBjSE02THk5d2Eya3Rj
+bUV1YzNsdFlYVjBhQzVqYjIwPTANBgkqhkiG9w0BAQsFAAOCAgEAe2YK40h9glmG
+qTevI2P53vkAJgC6UaTKCC5UCGioVQLkI53HqqPFBqCSuAs1lGboxxrTwsKX+vu5
+M4bDXUZayk4LLwEhusEamqMOp8kBRzAjLTbLL//4TSo4eHZfa9+HVXaSCzoa1wCh
+UgdMisZ+Q0K7YlKAZeVSJI03ECsSEpeamUJ9iWog8WTEdp99TODf3hrQD12I9np3
+2rK1O7nmK6M7JwwtnHhPk4HtGpLC3r/F3yzWypDtUwgRVP+DXvQUzXD0JtbzQSsB
+37CYZzV1motSp6l/tYkfVNfjiO47rxw2f6aH4Q5hRtgrAZuOcyAAO5hmBACPs+F9
+X6GZLufOX9M3hXIAaNdV9sL/3e6zEzgKlC2eU2oApdxffw9kxQgtXuuELaUnWmkA
+76qY12EAbfHf4Hj62LofKzv+VF6Qc+ziROUId/DtVmIIZcoycnjC9iGRncXglxV3
+2aNzJO0iyMbQk78Sjkeg793ArdimmOEev4ftw1fT9STNqJwffyx//gQlx+AE4lJA
+mjMncG4JRQNTvQyMDTfbphNaeIgwn8Q9zGHSgE9XXptUlD7UU5YTmzlgprNUKBbz
+2R30V6sAUOCs13HtpZUMZKTSyB1rjpF7dx7ug/qKn0XOw9/c/XLOoQnlpAat22kC
+FWmaIDulxuP567FuiCnUbTGNU8HxHnY=
+-----END CERTIFICATE-----
+</Certificate>
+            <Content>{"ns2:Receipt": {
+  "xmlns:ns2": "http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/",
+  "ns3:NonRepudiationInformation": {
+    "ns3:MessagePartNRInformation": [
+      {"ds:Reference": {
+        "ds:DigestMethod": {"Algorithm": "http://www.w3.org/2001/04/xmlenc#sha256"},
+        "ds:DigestValue": "mjyVrb1UIeF8mQdscy4ZyU3eFKyKC0gC3ARPIh+S4Oc=",
+        "URI": "#mid:f917b000-27af-43a9-b744-b6618fe60f23",
+        "xmlns:ds": "http://www.w3.org/2000/09/xmldsig#",
+        "ds:Transforms": {"ds:Transform": {"Algorithm": "http://www.w3.org/2001/10/xml-exc-c14n#"}}
+      }},
+      {"ds:Reference": {
+        "ds:DigestMethod": {"Algorithm": "http://www.w3.org/2001/04/xmlenc#sha256"},
+        "ds:DigestValue": "c7eW0qnOZUrpnwtjEi+E9uoivAvT/I3ifwabMzcCYtc=",
+        "URI": "#id-7167da3e-b9a7-493f-ab6d-483e89226556",
+        "xmlns:ds": "http://www.w3.org/2000/09/xmldsig#",
+        "ds:Transforms": {"ds:Transform": {"Algorithm": "http://www.w3.org/2001/10/xml-exc-c14n#"}}
+      }},
+      {"ds:Reference": {
+        "ds:DigestMethod": {"Algorithm": "http://www.w3.org/2001/04/xmlenc#sha256"},
+        "ds:DigestValue": "SLquD03k47CzqlVg5hf1NlJnI32Wqefat8jnF91WHBI=",
+        "URI": "cid:db238a24-71b3-4ec3-b28f-fef3fdf70f0d@ggw.pid",
+        "xmlns:ds": "http://www.w3.org/2000/09/xmldsig#",
+        "ds:Transforms": {"ds:Transform": {"Algorithm": "http://docs.oasis-open.org/wss/oasis-wss-SwAProfile-1.1#Attachment-Content-Signature-Transform"}}
+      }}
+    ],
+    "xmlns:ns3": "http://docs.oasis-open.org/ebxml-bp/ebbp-signals-2.0"
+  }
+}}</Content>
+        </ProofOfDelivery>
+    </Status>
+    <Error>
+        <Code>-4101</Code>
+        <Description>Provided document is not supported by document validator. [2020-11-05T07:46:48.092Z]</Description>
+        <InModule>8</InModule>
+    </Error>
+    <OriginalHeader>
+        <MessageIdentifier>1221_20201105_1541008</MessageIdentifier>
+        <RelayOperatorIdentifier>1140</RelayOperatorIdentifier>
+        <SenderIdentifier>
+            <Scheme>iso6523-actorid-upis</Scheme>
+            <Value>0088:7365564531123</Value>
+        </SenderIdentifier>
+        <RecipientIdentifier>
+            <Scheme>iso6523-actorid-upis</Scheme>
+            <Value>0192:998024123</Value>
+        </RecipientIdentifier>
+        <DocumentIdentifier>
+            <Scheme>busdox-docid-qns</Scheme>
+            <Value>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2::CreditNote##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</Value>
+        </DocumentIdentifier>
+        <ProcessIdentifier>
+            <Scheme>cenbii-procid-ubl</Scheme>
+            <Value>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</Value>
+        </ProcessIdentifier>
+    </OriginalHeader>
+</SendResponse>

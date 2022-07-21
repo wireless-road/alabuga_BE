@@ -1,0 +1,5 @@
+[run]
+omit = tests/*,klippa_ocr_api/*,migrations/*,cloudconvert/*
+
+[xml]
+output=coverage.xml
